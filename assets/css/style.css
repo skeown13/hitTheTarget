@@ -1,8 +1,13 @@
+div {
+  margin-bottom: 20px;
+}
+
 .option {
   height: 250px;
   width: 250px;
 }
 
-div {
-  margin-bottom: 20px;
+.currentTargetScore {
+  height: 250px;
+  width: 300px;
 }
