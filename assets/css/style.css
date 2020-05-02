@@ -1,10 +1,10 @@
 div {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .option {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
 }
 
 .currentTargetScore {
