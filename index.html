@@ -33,11 +33,19 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 textContainer">
         <img src="./assets/images/wins.jpg" alt="a cloud to show the number of wins" class="img-fluid winLoss">
+        <div id="winTextBlock">
+          <h2>WINS: </h2>
+          <p id="winTotal"></p>
+        </div>
       </div>
-      <div class="col-6">
+      <div class="col-6 textContainer">
         <img src="./assets/images/losses.jpg" alt="a cloud to show the number of losses" class="img-fluid winLoss">
+        <div id="lossTextBlock">
+          <h2>LOSSES: </h2>
+          <p id="lossTotal"></p>
+        </div>
       </div>
     </div>
 
@@ -48,11 +56,19 @@
       <div class="col-3">
         <img src="./assets/images/burner.jpg" alt="a hot air balloon burner" class="img-fluid rounded-circle option">
       </div>
-      <div class="col-3">
+      <div class="col-3 textContainer">
         <img src="./assets/images/currentScore.jpg" alt="a cloud with your current score" class="img-fluid currentTargetScore">
+        <div id="currentScoreTextBlock">
+          <h5>Current Score:</h5>
+          <p id="actualCurrentScore"></p>
+        </div>
       </div>
-      <div class="col-3">
+      <div class="col-3 textContainer">
         <img src="./assets/images/targetScore.jpg" alt="a cloud with your target score" class="img-fluid currentTargetScore">
+        <div id="targetScoreTextBlock">
+          <h5>Target Score:</h5>
+          <p id="actualTargetScore"></p>
+        </div>
       </div>
     </div>
 
