@@ -5,20 +5,36 @@ $(document).ready(function() {
   }
   
   function targetRndNum() {
-    Math.floor((Math.random() * 111) + 19); 
+    return Math.floor((Math.random() * 111) + 19); 
   } 
-
-  let balloonRndNum = optionsRndNum();
-  let burnerRndNum = optionsRndNum();
-  let ropeRndNum = optionsRndNum();
-  let xtargetRndNum = optionsRndNum();
-
+  
+  
+  let balloonRndNum;
+  let burnerRndNum;
+  let ropeRndNum;
+  let xtargetRndNum;
+  
   let currentScore = 0;
-  let targetScore = targetRndNum;
+  let targetScore;
   let wins = 0;
   let losses = 0;
+  
+  function reset() {
+    optionsRndNum();
+    balloonRndNum = optionsRndNum();
+    burnerRndNum = optionsRndNum();
+    ropeRndNum = optionsRndNum();
+    xtargetRndNum = optionsRndNum();
+    currentScore = 0;
+    $("#actualCurrentScore").text(currentScore);
+    targetRndNum();
+    targetScore = targetRndNum();
+    $("#actualTargetScore").text(targetScore);
+  }
 
-  $("#actualTargetScore").text(targetScore);
+  reset();
+  // $("#actualTargetScore").text(targetScore);
+  console.log(targetScore);
   // Needed feature for later - if a number has already randomly been assigned to an option, do not allow that number to be assigned to another option
   $(".option").on("click", function() {
     if (this.id === "balloon") {
@@ -38,9 +54,11 @@ $(document).ready(function() {
     if (currentScore === targetScore) {
       wins += 1;
       $("#winTotal").text(wins);
+      reset();
     } else if (currentScore > targetScore) {
       losses += 1;
       $("#lossTotal").text(losses);
+      reset();
     }
 
   })
