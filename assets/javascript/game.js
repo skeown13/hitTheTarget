@@ -9,7 +9,7 @@ $(document).ready(function() {
     return Math.floor((Math.random() * 111) + 19); 
   } 
   
-  // Declare variables to hold information
+  // Declare variables to hold information needed for application
   let balloonRndNum;
   let burnerRndNum;
   let ropeRndNum;
