@@ -2,6 +2,10 @@ div {
   /* margin-bottom: 30px; */
 }
 
+body {
+  background-image: url(./../images/cloudSky.jpg);
+}
+
 .option {
   height: 200px;
   width: 200px;
