@@ -22,14 +22,28 @@ $(document).ready(function() {
   
   // Create a reset function that assigns random numbers to each of the options and to the Target Score. Also sets the Current Score back to 0 at the end of each round. And shows the new Target Score on the screen.
   function reset() {
-    // optionsRndNum();
     balloonRndNum = optionsRndNum();
     burnerRndNum = optionsRndNum();
+      if (burnerRndNum === balloonRndNum){
+        while (burnerRndNum === balloonRndNum) {
+          burnerRndNum = optionsRndNum();
+        }
+      }
     ropeRndNum = optionsRndNum();
+      if (ropeRndNum === balloonRndNum || ropeRndNum === burnerRndNum){
+        while (ropeRndNum === balloonRndNum || ropeRndNum === burnerRndNum){
+          ropeRndNum = optionsRndNum();
+        }
+      }
     xtargetRndNum = optionsRndNum();
+      if (xtargetRndNum === balloonRndNum || xtargetRndNum === burnerRndNum || xtargetRndNum === ropeRndNum){
+        while (xtargetRndNum === balloonRndNum || xtargetRndNum === burnerRndNum || xtargetRndNum === ropeRndNum) {
+          xtargetRndNum = optionsRndNum();
+        }
+      }
+
     currentScore = 0;
     $("#actualCurrentScore").text(currentScore);
-    // targetRndNum();
     targetScore = targetRndNum();
     $("#actualTargetScore").text(targetScore);
   }
@@ -38,7 +52,6 @@ $(document).ready(function() {
   reset();
   
   // When an option is clicked, it ads its assigned random number to the Current Score.
-  // ***Needed feature for later - if a number has already randomly been assigned to an option, do not allow that number to be assigned to another option***
   $(".option").on("click", function() {
     if (this.id === "balloon") {
       currentScore += balloonRndNum;
