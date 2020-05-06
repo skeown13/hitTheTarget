@@ -22,14 +22,14 @@ $(document).ready(function() {
   
   // Create a reset function that assigns random numbers to each of the options and to the Target Score. Also sets the Current Score back to 0 at the end of each round. And shows the new Target Score on the screen.
   function reset() {
-    optionsRndNum();
+    // optionsRndNum();
     balloonRndNum = optionsRndNum();
     burnerRndNum = optionsRndNum();
     ropeRndNum = optionsRndNum();
     xtargetRndNum = optionsRndNum();
     currentScore = 0;
     $("#actualCurrentScore").text(currentScore);
-    targetRndNum();
+    // targetRndNum();
     targetScore = targetRndNum();
     $("#actualTargetScore").text(targetScore);
   }
