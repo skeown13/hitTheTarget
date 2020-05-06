@@ -11,20 +11,24 @@ $(document).ready(function() {
   let ropeRndNum = optionsRndNum();
   let xtargetRndNum = optionsRndNum();
 
-  let currentScore;
+  let currentScore = 0;
   let targetScore = targetRndNum;
 
-
+  $("#actualTargetScore").text(targetScore);
   // Needed feature for later - if a number has already randomly been assigned to an option, do not allow that number to be assigned to another option
   $(".option").on("click", function() {
     if (this.id === "balloon") {
-      console.log (balloonRndNum);
+      currentScore += balloonRndNum;
+      $("#actualCurrentScore").text(currentScore);
     } else if (this.id === "burner") {
-      console.log (burnerRndNum);
+      currentScore += burnerRndNum;
+      $("#actualCurrentScore").text(currentScore);
     } else if (this.id === "rope") {
-      console.log (ropeRndNum);
+      currentScore += ropeRndNum;
+      $("#actualCurrentScore").text(currentScore);
     } else if (this.id === "xtarget") {
-      console.log (xtargetRndNum);
+      currentScore += xtargetRndNum;
+      $("#actualCurrentScore").text(currentScore);
     }
 
   })
