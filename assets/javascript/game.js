@@ -82,6 +82,7 @@ $(document).ready(function() {
         $("#overlay").css("display", "block");
         $("#winLossMsg").text("Congratulations!!! You Hit the Target!");
       }
+      $("#playAgain").on("click", reset);
     } else if (currentScore > targetScore) {
       if ($("#overlay").css("display") === "none") {
         losses += 1;
