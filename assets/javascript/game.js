@@ -81,6 +81,7 @@ $(document).ready(function() {
       $("#lossTotal").text(losses);
       let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg").attr("class", "img-fluid");
       $("#images").html(imageLoss);
+      $("#overlay").css("display", "block");
       reset();
     }
 
