@@ -46,6 +46,8 @@ $(document).ready(function() {
     $("#actualCurrentScore").text(currentScore);
     targetScore = targetRndNum();
     $("#actualTargetScore").text(targetScore);
+
+    // $("#images").empty();
   }
 
   // Begins the game by assigning necessary variables via the reset function.
@@ -71,10 +73,14 @@ $(document).ready(function() {
     if (currentScore === targetScore) {
       wins += 1;
       $("#winTotal").text(wins);
+      let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg");
+      $("#images").html(imageWin);
       reset();
     } else if (currentScore > targetScore) {
       losses += 1;
       $("#lossTotal").text(losses);
+      let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg");
+      $("#images").html(imageLoss);
       reset();
     }
 
