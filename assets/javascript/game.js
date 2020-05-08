@@ -22,6 +22,7 @@ $(document).ready(function() {
   
   // Create a reset function that assigns random numbers to each of the options and to the Target Score. Also sets the Current Score back to 0 at the end of each round. And shows the new Target Score on the screen.
   function reset() {
+    $("#overlay").css("display", "none");
     balloonRndNum = optionsRndNum();
     burnerRndNum = optionsRndNum();
       if (burnerRndNum === balloonRndNum){
@@ -47,7 +48,7 @@ $(document).ready(function() {
     targetScore = targetRndNum();
     $("#actualTargetScore").text(targetScore);
 
-    // $("#images").empty();
+    $("#images").empty();
   }
 
   // Begins the game by assigning necessary variables via the reset function.
@@ -80,7 +81,6 @@ $(document).ready(function() {
         $("#images").html(imageWin);
         $("#overlay").css("display", "block");
         $("#winLossMsg").text("Congratulations!!! You Hit the Target!");
-        // reset();
       }
     } else if (currentScore > targetScore) {
       if ($("#overlay").css("display") === "none") {
@@ -90,9 +90,8 @@ $(document).ready(function() {
         $("#images").html(imageLoss);
         $("#overlay").css("display", "block");
         $("#winLossMsg").text("You Missed the Target!");
-        
-        // reset();
       }
+      $("#playAgain").on("click", reset);
     }
 
   })
