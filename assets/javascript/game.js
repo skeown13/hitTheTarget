@@ -78,7 +78,9 @@ $(document).ready(function() {
         $("#winTotal").text(wins);
         let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg").attr("class", "img-fluid");
         $("#images").html(imageWin);
-        reset();
+        $("#overlay").css("display", "block");
+        $("#winLossMsg").text("Congratulations!!! You Hit the Target!");
+        // reset();
       }
     } else if (currentScore > targetScore) {
       if ($("#overlay").css("display") === "none") {
@@ -87,6 +89,8 @@ $(document).ready(function() {
         let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg").attr("class", "img-fluid");
         $("#images").html(imageLoss);
         $("#overlay").css("display", "block");
+        $("#winLossMsg").text("You Missed the Target!");
+        
         // reset();
       }
     }

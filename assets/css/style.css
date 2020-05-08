@@ -60,9 +60,31 @@ h5 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+#winLossMsg {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: darkblue;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+#playAgain {
+  position: fixed;
+  width: 75%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.btnDiv {
+  position: relative;
+  /* width: 75%; */
+  top: 75%;
 }
 
 footer {
