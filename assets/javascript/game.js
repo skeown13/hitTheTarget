@@ -73,13 +73,13 @@ $(document).ready(function() {
     if (currentScore === targetScore) {
       wins += 1;
       $("#winTotal").text(wins);
-      let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg");
+      let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg").attr("class", "img-fluid");
       $("#images").html(imageWin);
       reset();
     } else if (currentScore > targetScore) {
       losses += 1;
       $("#lossTotal").text(losses);
-      let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg");
+      let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg").attr("class", "img-fluid");
       $("#images").html(imageLoss);
       reset();
     }
