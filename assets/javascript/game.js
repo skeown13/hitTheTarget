@@ -55,34 +55,40 @@ $(document).ready(function() {
   
   // When an option is clicked, it ads its assigned random number to the Current Score.
   $(".option").on("click", function() {
-    if (this.id === "balloon") {
-      currentScore += balloonRndNum;
-      $("#actualCurrentScore").text(currentScore);
-    } else if (this.id === "burner") {
-      currentScore += burnerRndNum;
-      $("#actualCurrentScore").text(currentScore);
-    } else if (this.id === "rope") {
-      currentScore += ropeRndNum;
-      $("#actualCurrentScore").text(currentScore);
-    } else if (this.id === "xtarget") {
-      currentScore += xtargetRndNum;
-      $("#actualCurrentScore").text(currentScore);
+    if (currentScore < targetScore){
+      if (this.id === "balloon") {
+        currentScore += balloonRndNum;
+        $("#actualCurrentScore").text(currentScore);
+      } else if (this.id === "burner") {
+        currentScore += burnerRndNum;
+        $("#actualCurrentScore").text(currentScore);
+      } else if (this.id === "rope") {
+        currentScore += ropeRndNum;
+        $("#actualCurrentScore").text(currentScore);
+      } else if (this.id === "xtarget") {
+        currentScore += xtargetRndNum;
+        $("#actualCurrentScore").text(currentScore);
+      }
     }
 
     // Creates the Logic for when a person wins or losses and what to do at that point.
     if (currentScore === targetScore) {
-      wins += 1;
-      $("#winTotal").text(wins);
-      let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg").attr("class", "img-fluid");
-      $("#images").html(imageWin);
-      reset();
+      if ($("#overlay").css("display") === "none") {
+        wins += 1;
+        $("#winTotal").text(wins);
+        let imageWin = $("<img>").attr("src", "./assets/images/targetHit.jpg").attr("class", "img-fluid");
+        $("#images").html(imageWin);
+        reset();
+      }
     } else if (currentScore > targetScore) {
-      losses += 1;
-      $("#lossTotal").text(losses);
-      let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg").attr("class", "img-fluid");
-      $("#images").html(imageLoss);
-      $("#overlay").css("display", "block");
-      reset();
+      if ($("#overlay").css("display") === "none") {
+        losses += 1;
+        $("#lossTotal").text(losses);
+        let imageLoss = $("<img>").attr("src", "./assets/images/targetMissed.jpg").attr("class", "img-fluid");
+        $("#images").html(imageLoss);
+        $("#overlay").css("display", "block");
+        // reset();
+      }
     }
 
   })
