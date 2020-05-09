@@ -21,7 +21,7 @@ $(document).ready(function() {
   let losses = 0;
 
   // Declare an array of photos that will be used when player clicks on an option
-  let balloonPics = ["./../images/balloons/b1.jpeg", "./../images/balloons/b2.jpeg", "./../images/balloons/b3.jpeg", "./../images/balloons/b4.jpeg", "./../images/balloons/b5.jpeg", "./../images/balloons/b6.jpeg", "./../images/balloons/b7.jpeg", "./../images/balloons/b8.jpeg", "./../images/balloons/b9.jpeg", "./../images/balloons/b10.jpeg", "./../images/balloons/b11.jpeg", "./../images/balloons/b12.jpeg", "./../images/balloons/b13.jpeg", "./../images/balloons/b14.jpeg", "./../images/balloons/b15.jpeg", "./../images/balloons/b16.jpeg", "./../images/balloons/b17.jpeg", "./../images/balloons/b18.jpeg", "./../images/balloons/b19.jpeg", "./../images/balloons/b20.jpeg", "./../images/balloons/b21.jpeg"];
+  let balloonPics = ["./assets/images/balloons/b1.jpeg", "./assets/images/balloons/b2.jpeg", "./assets/images/balloons/b3.jpeg", "./assets/images/balloons/b4.jpeg", "./assets/images/balloons/b5.jpeg", "./assets/images/balloons/b6.jpeg", "./assets/images/balloons/b7.jpeg", "./assets/images/balloons/b8.jpeg", "./assets/images/balloons/b9.jpeg", "./assets/images/balloons/b10.jpeg", "./assets/images/balloons/b11.jpeg", "./assets/images/balloons/b12.jpeg", "./assets/images/balloons/b13.jpeg", "./assets/images/balloons/b14.jpeg", "./assets/images/balloons/b15.jpeg", "./assets/images/balloons/b16.jpeg", "./assets/images/balloons/b17.jpeg", "./assets/images/balloons/b18.jpeg", "./assets/images/balloons/b19.jpeg", "./assets/images/balloons/b20.jpeg", "./assets/images/balloons/b21.jpg"];
   
   // Create a reset function that assigns random numbers to each of the options and to the Target Score. Also sets the Current Score back to 0 at the end of each round. And shows the new Target Score on the screen.
   function reset() {
@@ -54,12 +54,20 @@ $(document).ready(function() {
     $("#images").empty();
   }
 
+  // Creates a function to show a random picture when an option button is clicked
+  function showPic() {
+    let rndPic = balloonPics[Math.floor(Math.random() * balloonPics.length)];
+    let rndPicShown = $("<img>").attr("src", rndPic).attr("class", "img-fluid");
+        $("#images").html(rndPicShown);
+  }
+
   // Begins the game by assigning necessary variables via the reset function.
   reset();
   
   // When an option is clicked, it ads its assigned random number to the Current Score.
   $(".option").on("click", function() {
     if (currentScore < targetScore){
+      showPic();
       if (this.id === "balloon") {
         currentScore += balloonRndNum;
         $("#actualCurrentScore").text(currentScore);
